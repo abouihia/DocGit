@@ -83,7 +83,7 @@ To view all setting and where  they are coming from using:
   °°°°°° different protocole transfre given by git.
   HTTP, or SSH
 
-  °°°°°°°°Recording Changes to the Repository
+  # Recording Changes to the Repository
    a file can be tracked or untracked.
 
    to check the  file status in git is by using this command:
@@ -193,5 +193,27 @@ To view all setting and where  they are coming from using:
 			 
 
     # Undoing Things 
-	  git commit --amend  // This command takes your staging area and uses it for the commit
+	  git commit --amend  // This command takes your staging area and uses it for the commit ( en plus simple rattache ce commit au dernier commit fait juste avant)
+	  
+	  Example;
+			git commit -m 'Initial commit'
+			git add forgotten_file
+			git commit --amend
+			
+			it’s as if the previous commit never happened, and it won’t show up in your repository history
+    # Unstaging a Staged File	
+	   Scenario :  let’s say you’ve changed two files and
+			want to commit them as two separate changes, but you accidentally type git add * and stage them
+			both. How can you unstage one of the two	
+
+	 imagine you have two files  changed
+	  file1.txt
+	  file2.txt
+	and you execute this command:
+		git add *
+		 git status   => tell you two file ready to commit  you want to commit them as two separate changes , you can by doing this:
+	     git reset HEAD file2.txt
 	
+	
+	# Unmodifying a Modified File
+	 git checkout file2.txt  // this remove modification that you juste made  but not committed

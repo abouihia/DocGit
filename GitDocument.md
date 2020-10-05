@@ -71,10 +71,11 @@ To view all setting and where  they are coming from using:
         git  add LICENCE
         git commit  -m 'here you put you owner message'
 
-    Clone an existing project:
+   
+   °°°°°°°° Clone an existing project:
      For all most time you will  working with existing project  in this case you must get this project by clone this one:
-
-   °°°°°°°° git clone url_to_project
+     
+     	 git clone url_to_project
 
        example :  git clone https://github.com/libgit2/libgit2
          this command create a directory  named  libgit2 and intialize a .git  directory inside it
@@ -96,7 +97,7 @@ To view all setting and where  they are coming from using:
      Staging  Modified  Files
 
      let assume that we have a tracked file test.md
-      if you do same modification on it you must to stage this file by using the same comman to add untracked file:
+      if you do same modification on it you must to stage this file by using the same command to add untracked file:
 
        git add    is a multipurpose command — you use it to begin :
                   racking new files, 

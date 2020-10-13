@@ -213,7 +213,72 @@ To view all setting and where  they are coming from using:
 		git add *
 		 git status   => tell you two file ready to commit  you want to commit them as two separate changes , you can by doing this:
 	     git reset HEAD file2.txt
+		 git restore --staged file2.txt   is the new command introduced with (git version  2.25.0)
+
 	
 	
 	# Unmodifying a Modified File
-	 git checkout file2.txt  // this remove modification that you juste made  but not committed
+	 git checkout file2.txt  // this remove modification that you juste made  but not committed (Any local changes you made to that file are gone)
+	 
+	 
+	 # Working with Remotes
+	  git remote -v                   shows you the URLs that Git has stored for the shortname to be used when reading and writing to that remote
+	  git-pull = git-fetch + git-merge
+	  git fetch origin                    fetches any new work that has been pushed to that server since you  cloned (or last fetched from) it
+	  Important to known:
+	         git fetch     command only downloads the data to your local repository —— it doesn’t automatically merge it with any of your work or
+                           modify what you’re currently working on  You have to merge it manually into your work when you’re ready
+	# Pushing to Your Remotes
+		 git push origin master		  This command works only if you cloned from a server to which you have write access	
+		 
+    #Inspecting a Remote
+	Important to known:
+		  git remote show origin  If you want to see more information about a particular remote
+
+	      
+	#Tagging
+	  to list list all tag in your repository
+	   git tag
+	   This command lists the tags in alphabetical order; the order in which they are displayed has no real importance
+	
+    #Creationg  a tag	 and use it (create, delete, update)
+	  Git supports two types of tags: lightweight and annotated.
+
+	  1- lightweight: it’s just a pointer to a specific commit
+	  2- lightweight :  are stored as full objects in the Git database, contain the tagger name, email, and date; have a tagging message  is recommanded
+	  
+	  To create a tag use this command:
+	   git tag -a  nameTag -m "message of your tag"
+	   
+	  After that you can show you tag by  this command:
+	     git show nameTag
+	  Other nice think that is available in git is to tag at specific commit 
+       suppor you have un list of commit ( that you list by this command :	 git log --pretty=oneline)
+	   you set a tag at specific commit  by this command:
+	      
+		   git tag -a tagName 9fceb02 (is the commit sha)  	
+	  When you finish with your tag  push them to remote   
+           git push origin v1.5(the name of your tag)	  
+	 In case of many tags that you to push at once 
+      	   git push origin --tags
+		   
+	 To delete a tags  on your local repo  =>  git tag -d  nameTag  but be aware this not push the delete tag to remote like a commit  
+	 to do that  :    git push origin --delete <tagname>
+
+    Checking out Tags to make same modification ( fix bug  for example)
+	 git checkout -b   version2 (nameOfYourBranch) v2.0.0( tag version)
+	   If you do this and make a commit, your version2 branch will be slightly different than your v2.0.0 tag since it will move forward with your new changes,
+	 
+			/*************************************  Create an ALIAS  *****************************************/
+	
+	#Git Alias
+	  Same exampe te create an Alias:
+	  
+			$ git config --global alias.co checkout
+			$ git config --global alias.br branch
+			$ git config --global alias.ci commit
+			$ git config --global alias.st status
+			
+			
+	
+/*****************************   chap 3: Git Branching **************************************/	

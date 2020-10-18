@@ -293,3 +293,113 @@ To view all setting and where  they are coming from using:
 	 git checkout master
      then 
 	 git merge branch_name
+	 by this command , Git simply moves the pointer forward
+	 
+	# Basic Merging 
+	
+	Suppose you finish work on your branch and want to merge this work to master  to do that:
+	you’ll merge your  branch into master:
+	  git checkout master
+	  git merge nameOfBranch
+	  
+	#Basic Merge Conflicts
+	same time process merge goes with errors( conflicts) to saw conflict:
+	git status
+	
+	then resolve conflict manually, after resolving conflict then
+	 git add     --->  on each file to mark it as resolved
+	if there's other conflict   again 
+	 git status 
+	 when finishing :
+     git commit 	 to finalize the merge commit  
+	 
+	# Branch Management 
+	
+	git branch -v  to see last commit on each branch
+	
+	to rename Branch:
+	 git branch --move bad-branch-name corrected-branch-name
+	 
+	to push  to remote this new branch
+    git push --set-upstream origin corrected-branch-name
+	
+	# Remote Branch 
+  see page 88& 89
+    to synchronize with a given remote, you run  :
+	git fetch origin
+	
+	#Tracking Branches
+	When you clone a repository, it generally automatically creates a master branch that tracks origin/master
+	
+	If you want to see what tracking branches you have set up, you can use :
+	 ___________________________________________________________________________________________________
+	 git branch -vv      
+	 ___________________________________________________________________________________
+	 This will list out your local branches with more information including what each branch is tracking
+	and if your local branch is ahead, behind or both
+	
+	
+	#Rebasing
+	Two ways to integrate changes from one branch into another:
+	
+	merge and rebase.
+	
+	=>  merge command, merge between the two latest branch snapshots  creating a new snapshot (and commit).
+	=> rebase command , you can take all the changes that were committed on one branch and replay them on a different branch  
+	  to do this 
+	  you would check out the experiment branch, and then rebase it onto the master branch as follows:
+	  
+	   git checkout experiment
+       git rebase master
+	   
+	   // be carfuel your master branch maste be updated to get the last modification existed in remote 
+	    in this case our command will be
+		 git checkout master 
+		 git pull
+		 git checkout experiment
+		 git rebase master
+		 
+		 the best way to do that without any error is:
+		 getting the diff introduced by each commit of the branch you’re on, saving those diffs to temporary files
+		 resetting the current branch to the same commit as the branch you are rebasing onto (in our example is master)
+		 and finally applying each change in turn
+		 
+		 when you finish you can do this
+		  git checkout master
+		   git merge experiment
+	
+	
+	     ************** rebasing makes for  a cleaner history  it looks like a linear history: it appears that all the work happened in series, even when it originally happened in parallel.
+
+	Other More Interesting Rebases
+	
+	1 - Her whe have master and branch server and other branch form server called client
+	after that you make same commit in server and also in client
+	you to put on master only modification of client
+	int this case  this command can do the job:
+	from client branch :
+	 git rebase --onto master server client
+	 
+	 and after :
+	 git checkout master
+	  git merge client
+	  
+	  
+	2- Let’s say you decide to pull in your server branch as well
+	 You can rebase the server branch onto the master branch without having to check it out first by running this command
+	 git rebase master server    => This replays your server work on top of your master work
+	 then  after:
+	 git checkout master
+	 git merge server
+	 
+	 
+	***************************** The Perils of Rebasing  *****************************************************
+	
+	 but the bliss of rebasing isn’t without its drawbacks:
+	 
+	 
+	1- Do not rebase commits that exist outside your repository and that people may have based work on.
+
+
+  **********************************  Rebase vs. Merge  ************************************************
+    Which one is better?

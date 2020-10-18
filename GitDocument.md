@@ -254,7 +254,7 @@ To view all setting and where  they are coming from using:
 	     git show nameTag
 	  Other nice think that is available in git is to tag at specific commit 
        suppor you have un list of commit ( that you list by this command :	 git log --pretty=oneline)
-	   you set a tag at specific commit  by this command:
+	   you set a tag at specific commit  by this command:x
 	      
 		   git tag -a tagName 9fceb02 (is the commit sha)  	
 	  When you finish with your tag  push them to remote   
@@ -281,4 +281,15 @@ To view all setting and where  they are coming from using:
 			
 			
 	
-/*****************************   chap 3: Git Branching **************************************/	
+          /*****************************   chap 3: Git Branching **************************************/	
+		  
+	To create a branche two ways:
+        git checkout -b <newbranchname>	
+		git switch -c   <new-branch>
+	
+    # Basic Branching and Merging	
+	
+	A-Merge:
+	 git checkout master
+     then 
+	 git merge branch_name

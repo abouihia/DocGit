@@ -419,4 +419,65 @@ To view all setting and where  they are coming from using:
 	
 	
 	#Ancestry References
-	git show HEAD^  and  git show HEAD~ are equivalent   it refers to the first parent
+	git show HEAD^  and  git show HEAD~ are equivalent   it refers to the first parent  (git show HEAD~~    or  HEAD~2  first parent of the first parent) etc.....
+	
+	
+	3-Commit ranges :
+	useful for managing your branches
+	ask this question :
+	 you can use range specifications to answer questions such as, “What work is on this branch that I haven’t yet merged into my main branch?”
+	 
+	 for example — all commits in master that aren’t in experiment( is branche) you can do this command   
+	  ==> git log experiment..master 
+	  This is useful if you want to keep the experiment branch up to date and preview what you’re about to merge
+	  
+	 Another frequent use of this syntax is to see what you’re about to push to a remote: 
+	 
+	 ==>  git log origin/master..HEAD  :: shows you any commits in your current branch that aren’t in the master branch on your origin remote
+	 
+	 
+	 #Staging Patches
+	 
+	 #Stashing and Cleaning
+	 git stash   this command can let you put your modification that is not commited  by stashing them
+	 
+	 To demonstrate stashing  by steps : 
+     	 1- git status
+	
+	Scenario: Now you want to switch branches, but you don’t want to commit what you’ve been working on yet:
+	   
+	     2- git stash
+
+    You can now see that your working directory is clean:
+	     3-  git status  you can see your working directory is clean
+	
+     To see which stashes you’ve stored, you can use git stash list:	 git stash list
+	 
+	 let see :  you have this as result of commande:
+	 
+	 
+	 stash@{0}: WIP on master: 049d078 Create index file
+	 stash@{1}: WIP on master: c264051 Revert "Add file_size"
+	 stash@{2}: WIP on master: 21d80a5 Add number to log
+	 
+	 
+	 ta apply most recent one  use this commad  ===>   git stash apply  
+	 otherwise  git stash apply stash@{2}  to apply three one for example
+	 
+	
+	*** To drop remove stash   ---> git stash drop  
+   	You can also run    =====>  git stash pop          to apply the stash and then immediately drop it from your stack.
+	
+	Same time you wen to apply the stashed work and keep them for other reason:
+	 to do that : git stash --keep-index
+	 
+	 
+	 Another common thing you may want to do with stash is to stash the untracked files as well as the tracked ones.
+	 
+	 By default:
+	 To  stash only modified and staged tracked files:  git stash  
+	 To  stash include untracked files and  modified and staged tracked files:  git stash -u
+	 
+
+	 
+	 

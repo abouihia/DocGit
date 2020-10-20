@@ -403,3 +403,20 @@ To view all setting and where  they are coming from using:
 
   **********************************  Rebase vs. Merge  ************************************************
     Which one is better?
+	it’s up to
+    you to decide which one is best for your particular situation
+	You can get the best of both worlds: rebase local changes before pushing to clean up your work, but
+    never rebase anything that you’ve pushed somewhere
+	
+	/*****************************   chap 3: Git Tools **************************************/	
+	
+	#refer to a single, set, or range of commit:
+	1-signle commit:
+	 by its full, 40-character SHA-1 hash
+	  to know this commit  use :  git log
+	2-Reflog  :  git reflog
+	a log of where your HEAD and branch references have been for the last few months.
+	
+	
+	#Ancestry References
+	git show HEAD^  and  git show HEAD~ are equivalent   it refers to the first parent

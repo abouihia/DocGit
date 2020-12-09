@@ -478,6 +478,41 @@ To view all setting and where  they are coming from using:
 	 To  stash only modified and staged tracked files:  git stash  
 	 To  stash include untracked files and  modified and staged tracked files:  git stash -u
 	 
+	 #Create  branch from stash
+	  git stash branch testchanges
+	 
+    #Cleaning your Working Directory	 
+	
+	 git clean :
+	  this command can git rid(se débarasser)  the some stash work or files in your working directory.
+	  Also, to remove files from your working directory that are not tracked
+	  
+	  to remove all untracked files in your project :
+	  git clean -f -d,   ===> which removes any files and also any subdirectories that become empty as a result
+	  git clean         ===> command will only remove untracked files that are not ignored
+	  
+	  Important:
+	    Any file that matches a pattern in your .gitignore :
+	git clean -n -d -x	
+		
+	  
+	  # searching : see page  245 to 247
+	 
+	
+	
+    # Rewriting History	
+	
+	Remembre :Don’t push your work until you’re happy with it
+	
+	
+	   1-Changing the Last Commit:
 
+	 git commit --amend    ===>    to modify your last commit message
+	                               replaces that last commit with your new
+								   
+								   
+		When you amend a commit, you have the opportunity to change both the commit message and the content of the commit						   
 	 
-	 
+	 git commit --amend --no-edit     with no modification of message
+    
+	   2-Changing Multiple Commit Messages

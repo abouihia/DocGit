@@ -1,0 +1,62 @@
+Squash commits into one with Git
+
+In Git you can merge several commits into one with the powerful interactive rebase:
+
+Step 1: choose your starting commit
+
+
+
+Step1:Step 1: choose your starting commit
+
+The first thing to do is to invoke git to start an interactive rebase session:
+
+git rebase --interactive HEAD~N   or shorter : git rebase -i HEAD~N   
+
+
+where N is the number of commits you want to join, starting from the most recent one
+
+//to show list of commit do this command:
+git log --pretty=format:"%h - %an, %ar : %s"  // to help you  or    git log --pretty=oneline --abbrev-commit
+
+
+Step 2: picking and squashing:
+
+your editor of choice will pop up,  showing the list of commits you want to merge  for example you will have:
+
+pick d94e78 Prepare the workbench for feature Z     --- older commit
+pick 4e9baa Cool implementation 
+pick afb581 Fix this and that  
+pick 643d0e Code cleanup
+pick 87871a I'm ready! 
+pick 0c3317 Whoops, not yet... 
+pick 871adf OK, feature Z is fully implemented      --- newer commit
+
+You mark a commit as squashable by changing the word pick into squash next to it (or s for brevity, as stated in the comments). The result would be:
+
+
+pick d94e78 Prepare the workbench for feature Z     --- older commit
+s 4e9baa Cool implementation 
+s afb581 Fix this and that  
+s 643d0e Code cleanup
+s 87871a I'm ready! 
+s 0c3317 Whoops, not yet... 
+s 871adf OK, feature Z is fully implemented      --- newer commit
+
+Save the file and close the editor.
+
+
+
+Step 3: Create the new commit.
+
+A new pop up open and tell you which of the commit you want to use
+and after you cas comment all other
+Save the file and close the editor.
+
+on peu verifier avec git log --oneline
+
+after you push bu this command:
+
+git push origin master --force
+
+
+

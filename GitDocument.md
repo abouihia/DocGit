@@ -516,3 +516,7 @@ To view all setting and where  they are coming from using:
 	 git commit --amend --no-edit     with no modification of message
     
 	   2-Changing Multiple Commit Messages
+
+
+// Very important command  show files related to specific commit  
+git diff-tree --no-commit-id --name-only -r   commitNumber
